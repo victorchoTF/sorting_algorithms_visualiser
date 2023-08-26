@@ -1,4 +1,5 @@
-from typing import List
+from random import shuffle
+from typing import List, Optional
 from helpers import quit_loop, restart
 from pygame import event, display, quit as pg_quit
 from screen import screen
@@ -161,7 +162,9 @@ def insertion_sort(array: List[int]) -> List[int]:  # O(n^2)
     return array
 
 
-def quick_sort(array: List[int], start: int, end: int) -> List[int]:  # O(n^2) {avg_case: O(n*log(n))
+def quick_sort(array: List[int], start: int = 0, end: int = -1) -> List[int]:  # O(n^2) {avg_case: O(n*log(n))
+    end = end if end != -1 else len(array) - 1
+
     if start >= end:
         return array
 
@@ -215,7 +218,7 @@ def quick_sort(array: List[int], start: int, end: int) -> List[int]:  # O(n^2) {
     return array
 
 
-def merge_sort(array: List[int], left, right) -> None:  # O(n*log(n))
+def merge_sort(array: List[int], left: int = 0, right: int = -1) -> Optional[List[int]]:  # O(n*log(n))
     def merge(start, end):
         nonlocal mid
         second_start = mid + 1
@@ -268,6 +271,8 @@ def merge_sort(array: List[int], left, right) -> None:  # O(n*log(n))
             mid += 1
             second_start += 1
 
+    right = right if right != -1 else len(array) - 1
+
     if left >= right:
         return
 
@@ -278,8 +283,10 @@ def merge_sort(array: List[int], left, right) -> None:  # O(n*log(n))
 
     merge(left, right)
 
+    return array
 
-def tin_sort(array: List[int]):  # O(n*log(n))
+
+def tin_sort(array: List[int]) -> List[int]:  # O(n*log(n))
     MIN_MERGE = 32
 
     def calc_min_run(n: int) -> int:
@@ -410,6 +417,8 @@ def tin_sort(array: List[int]):  # O(n*log(n))
                 merge()
 
         size *= 2
+
+    return array
 
 
 def heap_sort(array: List[int]) -> List[int]:  # O(n*log(n))
@@ -580,5 +589,11 @@ def shell_sort(array: List[int]) -> List[int]:  # O(n^(3/2))
 
             j += 1
         gap //= 2
+
+    return array
+
+
+def shuffle_list(array: List[int]) -> List[int]:
+    shuffle(array)
 
     return array
