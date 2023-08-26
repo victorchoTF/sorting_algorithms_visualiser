@@ -1,9 +1,10 @@
 from random import shuffle
 from typing import List, Optional
-from helpers import quit_loop, restart
 from pygame import event, display, quit as pg_quit
+from app_operations.restart import restart
+from app_operations.quit_loop import quit_loop
 from screen import screen
-from displaying import gen_surf_rect_list
+from app_operations.gen_surf_rect_list import gen_surf_rect_list
 
 
 def selection_sort(array: List[int]) -> List[int]:  # O(n^2)

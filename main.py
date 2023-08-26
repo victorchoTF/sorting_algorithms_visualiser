@@ -3,8 +3,9 @@ from screen import screen, SCREEN_WIDTH, SCREEN_HEIGHT, clock
 from button import Button
 from sorting_functions import (selection_sort, bubble_sort, insertion_sort, cocktail_sort, quick_sort, merge_sort,
                                tin_sort, heap_sort, radix_sort, shell_sort, shuffle_list)
-from displaying import gen_surf_rect_list, transition
-from helpers import quit_loop
+from app_operations.transition import transition
+from app_operations.gen_surf_rect_list import gen_surf_rect_list
+from app_operations.quit_loop import quit_loop
 
 FONT = None
 
@@ -75,7 +76,7 @@ def main():
                      insertion_sort_button, merge_sort_button, quick_sort_button, tin_sort_button, heap_sort_button,
                      radix_sort_button, shell_sort_button, shuffle_button))
 
-    functions = tuple((selection_sort, bubble_sort, insertion_sort, cocktail_sort, quick_sort, merge_sort,
+    functions = tuple((selection_sort, bubble_sort, cocktail_sort, insertion_sort, quick_sort, merge_sort,
                        tin_sort, heap_sort, radix_sort, shell_sort, shuffle_list))
 
     SORTING_MAP = {button: lambda x, func=func: func(x) for button, func in zip(buttons, functions)}
