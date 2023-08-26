@@ -163,8 +163,8 @@ def insertion_sort(array: List[int]) -> List[int]:  # O(n^2)
     return array
 
 
-def quick_sort(array: List[int], start: int = 0, end: int = -1) -> List[int]:  # O(n^2) {avg_case: O(n*log(n))
-    end = end if end != -1 else len(array) - 1
+def quick_sort(array: List[int], start: int = 0, end: int = None) -> List[int]:  # O(n^2) {avg_case: O(n*log(n))
+    end = end if end is not None else len(array) - 1
 
     if start >= end:
         return array
@@ -219,7 +219,7 @@ def quick_sort(array: List[int], start: int = 0, end: int = -1) -> List[int]:  #
     return array
 
 
-def merge_sort(array: List[int], left: int = 0, right: int = -1) -> Optional[List[int]]:  # O(n*log(n))
+def merge_sort(array: List[int], left: int = 0, right: int = None) -> Optional[List[int]]:  # O(n*log(n))
     def merge(start, end):
         nonlocal mid
         second_start = mid + 1
@@ -272,7 +272,7 @@ def merge_sort(array: List[int], left: int = 0, right: int = -1) -> Optional[Lis
             mid += 1
             second_start += 1
 
-    right = right if right != -1 else len(array) - 1
+    right = right if right is not None else len(array) - 1
 
     if left >= right:
         return

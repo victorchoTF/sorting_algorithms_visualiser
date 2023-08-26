@@ -19,7 +19,7 @@ class MainScreen:
         self.buttons_rect = self.buttons_surf.get_rect(topleft=(0, 0))
         self.buttons_rect.midtop = SCREEN_WIDTH // 2, 0
 
-        functions = tuple((selection_sort, bubble_sort, cocktail_sort, insertion_sort, quick_sort, merge_sort,
+        functions = tuple((selection_sort, bubble_sort, cocktail_sort, insertion_sort, merge_sort, quick_sort,
                            tin_sort, heap_sort, radix_sort, shell_sort, shuffle_list))
 
         self.buttons = MainScreen.create_buttons()
@@ -49,7 +49,7 @@ class MainScreen:
 
         return buttons
 
-    def draw(self, surf_rect_list) -> None:
+    def draw(self, surf_rect_list: List[Tuple[Surface, Rect]]) -> None:
         def buttons_draw() -> None:
             for button in self.buttons:
                 button.draw()
@@ -63,7 +63,8 @@ class MainScreen:
 
         buttons_draw()
 
-    def buttons_check(self, num_list, surf_rect_list) -> Tuple[List[int], List[Tuple[Surface, Rect]]]:
+    def buttons_check(self, num_list: List[int],
+                      surf_rect_list: List[Tuple[Surface, Rect]]) -> Tuple[List[int], List[Tuple[Surface, Rect]]]:
         for button in self.buttons:
             if button.is_clicked():
                 try:
