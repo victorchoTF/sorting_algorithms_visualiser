@@ -1,9 +1,18 @@
 from typing import Tuple, List
 from pygame import font, Surface, Rect
 from button import Button
-from sorting_functions import (selection_sort, bubble_sort, insertion_sort, cocktail_sort, quick_sort,
-                               merge_sort, tin_sort, heap_sort, radix_sort, shell_sort, shuffle_list)
 from screen import screen, SCREEN_WIDTH, SCREEN_HEIGHT
+from sorting_algorithms.bubble_sort import bubble_sort
+from sorting_algorithms.cocktail_sort import cocktail_sort
+from sorting_algorithms.heap_sort import heap_sort
+from sorting_algorithms.insertion_sort import insertion_sort
+from sorting_algorithms.merge_sort import merge_sort
+from sorting_algorithms.quick_sort import quick_sort
+from sorting_algorithms.radix_sort import radix_sort
+from sorting_algorithms.selection_sort import selection_sort
+from sorting_algorithms.shell_sort import shell_sort
+from sorting_algorithms.tin_sort import tin_sort
+from app_operations.shuffle_list import shuffle_list
 from app_operations.gen_surf_rect_list import gen_surf_rect_list
 
 
