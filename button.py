@@ -7,7 +7,7 @@ button_font = font.Font(None, 60)
 
 class Button:
     def __init__(self, text: str, pos: Tuple[int, int], width: int = 0, height: int = 0,
-                 font: font.Font = button_font):
+                 font: font.Font = button_font) -> None:
         self.pressed = False
         self.elevation = 4
         self.dynamic_elevation = 4
@@ -25,7 +25,7 @@ class Button:
         text_rect = text_surf.get_rect(center=self.top_rect.center)
         self.text = text_surf, text_rect
 
-    def draw(self):
+    def draw(self) -> None:
         self.top_rect.y = self.original_y_pos - self.dynamic_elevation
         self.text[1].center = self.top_rect.center
         self.bottom_rect.midtop = self.top_rect.midtop
@@ -35,7 +35,7 @@ class Button:
         draw.rect(screen, self.top_color, self.top_rect, border_radius=16)
         screen.blit(*self.text)
 
-    def is_clicked(self):
+    def is_clicked(self) -> bool:
         mouse_pos = mouse.get_pos()
         if self.top_rect.collidepoint(mouse_pos):
             self.top_color = "#9FE2BF"
