@@ -3,7 +3,7 @@ A Sorting Algorithms Visualiser made using Pygame
 
 ## Main aim
 The app aims to show ten sorting algorithms, which vary in time complexity! <br>
-The ten algorithms are Bubble sort, Cocktail sort, Heap sort, Insertion sort, Merge sort, Quick Sort, Radix sort, Selection sort, Shell sort, Tin sort;
+The ten algorithms are Bubble sort, Cocktail sort, Heap sort, Insertion sort, Merge sort, Quick Sort, Radix sort,<br>Selection sort, Shell sort, Tin sort;
 
 ## Structure
 title_screen.py handles the Title screen logic <br>
