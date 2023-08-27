@@ -20,7 +20,7 @@ A Python package that holds all the sorting algorithms.
 Each file contains one algorithm and its time complexity written as a comment next to the function itself.
 
 ## Used technologies
-<ul>
+<ul style="list-style-type:none;">
   <li>
     Python: <img src="https://github.com/victorchoTF/sorting_algorithms_visualiser/assets/117527071/d243a56d-3906-46b7-aefd-54194b047c5a" width="50" height="50" />
   </li>
