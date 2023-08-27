@@ -20,5 +20,5 @@ A Python package that holds all the sorting algorithms.
 Each file contains one algorithm and its time complexity written as a comment next to the function itself.
 
 ## Used technologies
-Python: <img src="hhttps://github.com/victorchoTF/sorting_algorithms_visualiser/assets/117527071/c40a977f-7fc0-4549-a660-0b5b30fdaa87" width="200" height="200" />
-Pygame: <img src="https://github.com/victorchoTF/sorting_algorithms_visualiser/assets/117527071/ad280475-2d65-4f3e-aabb-291394a6e536" width="200" height="200"/>
+Python: <img src="https://github.com/victorchoTF/sorting_algorithms_visualiser/assets/117527071/d243a56d-3906-46b7-aefd-54194b047c5a" width="50" height="50" />
+Pygame: <img src="https://github.com/victorchoTF/sorting_algorithms_visualiser/assets/117527071/ad280475-2d65-4f3e-aabb-291394a6e536" width="50" height="50"/>
