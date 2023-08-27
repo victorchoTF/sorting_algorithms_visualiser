@@ -1,4 +1,4 @@
-# sorting_algorithms_visualiser
+# Sorting Algorithms Visualiser
 A Sorting Algorithms Visualiser made using Pygame
 
 ## Main aim
