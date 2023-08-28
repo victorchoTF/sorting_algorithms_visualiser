@@ -1,19 +1,18 @@
 from typing import Tuple
-from pygame import font, Rect, draw, mouse
+from pygame import font as pg_font, Rect, draw, mouse
 from screen import screen
-
-button_font = font.Font(None, 60)
 
 
 class Button:
     def __init__(self, text: str, pos: Tuple[int, int], width: int = 0, height: int = 0,
-                 font: font.Font = button_font) -> None:
+                 font: pg_font.Font = None) -> None:
         self.pressed = False
         self.elevation = 4
         self.dynamic_elevation = 4
         self.original_y_pos = pos[1]
 
         width = min(350, len(text) * 30) if not width else width
+        font = font if font is not None else pg_font.Font(None, 60)
 
         self.top_rect = Rect(pos, (width, 60 if not height else height))
         self.bottom_rect = Rect(pos, (width, self.elevation))

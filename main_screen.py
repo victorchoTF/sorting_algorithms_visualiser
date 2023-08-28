@@ -17,45 +17,62 @@ from app_operations.gen_surf_rect_list import gen_surf_rect_list
 
 
 class MainScreen:
+    BUTTONS_TO_CREATE: Dict[str, Tuple[int, int]] = {
+        "Selection Sort": (SCREEN_WIDTH - 1850, SCREEN_HEIGHT - 990),
+        "Bubble Sort": (SCREEN_WIDTH - 1480, SCREEN_HEIGHT - 990),
+        "Cocktail Sort": (SCREEN_WIDTH - 1130, SCREEN_HEIGHT - 990),
+        "Insertion Sort": (SCREEN_WIDTH - 760, SCREEN_HEIGHT - 990),
+        "Merge Sort": (SCREEN_WIDTH - 390, SCREEN_HEIGHT - 990),
+        "Quick Sort": (SCREEN_WIDTH - 1830, SCREEN_HEIGHT - 920),
+        "Tin Sort": (SCREEN_WIDTH - 1510, SCREEN_HEIGHT - 920),
+        "Heap Sort": (SCREEN_WIDTH - 1250, SCREEN_HEIGHT - 920),
+        "Radix Sort": (SCREEN_WIDTH - 960, SCREEN_HEIGHT - 920),
+        "Shell Sort": (SCREEN_WIDTH - 640, SCREEN_HEIGHT - 920),
+        "Shuffle": (SCREEN_WIDTH - 320, SCREEN_HEIGHT - 920)
+    }
+
     def __init__(self) -> None:
+        self.title_surf, self.title_rect = self.create_title()
+
+        self.buttons_surf, self.buttons_rect = self.create_buttons_surface_rects()
+        self.buttons = self.create_buttons()
+
+        self.sorting_map = self.create_sorting_map()
+
+    @staticmethod
+    def create_title() -> Tuple[Surface, Rect]:
         title_font = font.Font(None, 100)
-        self.title_surf = title_font.render("Sorting Algorithms Visualiser", True, "#008080")
-        self.title_rect = self.title_surf.get_rect(midtop=(SCREEN_WIDTH // 2, 10))
+        title_surf = title_font.render("Sorting Algorithms Visualiser", True, "#008080")
+        title_rect = title_surf.get_rect(midtop=(SCREEN_WIDTH // 2, 10))
+        return title_surf, title_rect
 
-        self.buttons_surf = Surface((SCREEN_WIDTH, 230))
-        self.buttons_surf.fill("#DEBA69")
-        self.buttons_surf.set_alpha(220)
-        self.buttons_rect = self.buttons_surf.get_rect(topleft=(0, 0))
-        self.buttons_rect.midtop = SCREEN_WIDTH // 2, 0
-
-        functions = tuple((selection_sort, bubble_sort, cocktail_sort, insertion_sort, merge_sort, quick_sort,
-                           tin_sort, heap_sort, radix_sort, shell_sort, shuffle_list))
-
-        self.buttons = MainScreen.create_buttons()
-
-        self.sorting_map = {button: lambda x, func=func: func(x)
-                            for button, func in zip(self.buttons, functions)}
+    @staticmethod
+    def create_buttons_surface_rects() -> Tuple[Surface, Rect]:
+        buttons_surf = Surface((SCREEN_WIDTH, 230))
+        buttons_surf.fill("#DEBA69")
+        buttons_surf.set_alpha(220)
+        buttons_rect = buttons_surf.get_rect(topleft=(0, 0))
+        buttons_rect.midtop = SCREEN_WIDTH // 2, 0
+        return buttons_surf, buttons_rect
 
     @staticmethod
     def create_buttons() -> Tuple[Button, ...]:
-        buttons_to_create: Dict[str, Tuple[int, int]] = {
-            "Selection Sort": (SCREEN_WIDTH - 1850, SCREEN_HEIGHT - 990),
-            "Bubble Sort": (SCREEN_WIDTH - 1480, SCREEN_HEIGHT - 990),
-            "Cocktail Sort": (SCREEN_WIDTH - 1130, SCREEN_HEIGHT - 990),
-            "Insertion Sort": (SCREEN_WIDTH - 760, SCREEN_HEIGHT - 990),
-            "Merge Sort": (SCREEN_WIDTH - 390, SCREEN_HEIGHT - 990),
-            "Quick Sort": (SCREEN_WIDTH - 1830, SCREEN_HEIGHT - 920),
-            "Tin Sort": (SCREEN_WIDTH - 1510, SCREEN_HEIGHT - 920),
-            "Heap Sort": (SCREEN_WIDTH - 1250, SCREEN_HEIGHT - 920),
-            "Radix Sort": (SCREEN_WIDTH - 960, SCREEN_HEIGHT - 920),
-            "Shell Sort": (SCREEN_WIDTH - 640, SCREEN_HEIGHT - 920),
-            "Shuffle": (SCREEN_WIDTH - 320, SCREEN_HEIGHT - 920)
-                             }
-
         buttons = tuple(Button(sort_type, position)
-                        for sort_type, position in buttons_to_create.items())
+                        for sort_type, position in MainScreen.BUTTONS_TO_CREATE.items())
 
         return buttons
+
+    def create_sorting_map(self):
+        functions = (
+            selection_sort, bubble_sort, cocktail_sort, insertion_sort,
+            merge_sort, quick_sort, tin_sort, heap_sort, radix_sort, shell_sort,
+            shuffle_list
+        )
+        sorting_map = {
+            button: lambda x, func=func: func(x)
+            for button, func in zip(self.buttons, functions)
+        }
+        return sorting_map
 
     def draw(self, surf_rect_list: List[Tuple[Surface, Rect]]) -> None:
         def buttons_draw() -> None:
