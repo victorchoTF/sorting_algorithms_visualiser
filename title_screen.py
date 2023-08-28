@@ -45,7 +45,7 @@ class TitleScreen:
     @staticmethod
     def title_animation(rect: Rect, init_y: int) -> None:
         amplitude = 30
-        frequency = 0.01
+        frequency = 0.005
 
         displacement = amplitude * sin(frequency * time.get_ticks())
 
