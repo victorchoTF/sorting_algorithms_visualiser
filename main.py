@@ -1,4 +1,4 @@
-from pygame import display, event
+from pygame import display, event, quit
 from main_screen import MainScreen
 from screen import screen, SCREEN_HEIGHT, clock
 from app_operations.transition import transition

@@ -16,9 +16,9 @@ class Button:
         width = min(350, len(text) * 30) if not width else width
 
         self.top_rect = Rect(pos, (width, 60 if not height else height))
-        self.top_color = "#008080"
-
         self.bottom_rect = Rect(pos, (width, self.elevation))
+
+        self.top_color = "#008080"
         self.bottom_color = "#005050"
 
         text_surf = font.render(text, True, "#DEBA69")
@@ -35,21 +35,32 @@ class Button:
         draw.rect(screen, self.top_color, self.top_rect, border_radius=16)
         screen.blit(*self.text)
 
-    def is_clicked(self) -> bool:
-        mouse_pos = mouse.get_pos()
-        if self.top_rect.collidepoint(mouse_pos):
+    def apply_hover(self, value: bool) -> None:
+        if value:
             self.top_color = "#9FE2BF"
             self.bottom_color = "#8FD2AF"
-            if mouse.get_pressed()[0]:
-                self.dynamic_elevation = 0
-                self.pressed = True
-            elif self.pressed:
-                self.dynamic_elevation = self.elevation
-                self.pressed = False
-                return True
-        else:
+            return
+
+        self.top_color = "#008080"
+        self.bottom_color = "#005050"
+
+    def is_clicked(self) -> bool:
+        mouse_pos = mouse.get_pos()
+
+        if not self.top_rect.collidepoint(mouse_pos):
             self.dynamic_elevation = self.elevation
-            self.top_color = "#008080"
-            self.bottom_color = "#005050"
+            self.apply_hover(False)
+            return False
+
+        self.apply_hover(True)
+
+        if mouse.get_pressed()[0]:
+            self.dynamic_elevation = 0
+            self.pressed = True
+
+        elif self.pressed:
+            self.dynamic_elevation = self.elevation
+            self.pressed = False
+            return True
 
         return False

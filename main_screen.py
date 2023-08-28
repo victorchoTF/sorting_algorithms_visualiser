@@ -1,4 +1,4 @@
-from typing import Tuple, List
+from typing import Tuple, List, Dict
 from pygame import font, Surface, Rect
 from button import Button
 from screen import screen, SCREEN_WIDTH, SCREEN_HEIGHT
@@ -38,23 +38,22 @@ class MainScreen:
 
     @staticmethod
     def create_buttons() -> Tuple[Button, ...]:
-        selection_sort_button = Button("Selection Sort", (SCREEN_WIDTH - 1850, SCREEN_HEIGHT - 990))
-        bubble_sort_button = Button("Bubble Sort", (SCREEN_WIDTH - 1480, SCREEN_HEIGHT - 990))
-        cocktail_sort_button = Button("Cocktail Sort", (SCREEN_WIDTH - 1130, SCREEN_HEIGHT - 990))
-        insertion_sort_button = Button("Insertion Sort", (SCREEN_WIDTH - 760, SCREEN_HEIGHT - 990))
-        merge_sort_button = Button("Merge Sort", (SCREEN_WIDTH - 390, SCREEN_HEIGHT - 990))
+        buttons_to_create: Dict[str, Tuple[int, int]] = {
+            "Selection Sort": (SCREEN_WIDTH - 1850, SCREEN_HEIGHT - 990),
+            "Bubble Sort": (SCREEN_WIDTH - 1480, SCREEN_HEIGHT - 990),
+            "Cocktail Sort": (SCREEN_WIDTH - 1130, SCREEN_HEIGHT - 990),
+            "Insertion Sort": (SCREEN_WIDTH - 760, SCREEN_HEIGHT - 990),
+            "Merge Sort": (SCREEN_WIDTH - 390, SCREEN_HEIGHT - 990),
+            "Quick Sort": (SCREEN_WIDTH - 1830, SCREEN_HEIGHT - 920),
+            "Tin Sort": (SCREEN_WIDTH - 1510, SCREEN_HEIGHT - 920),
+            "Heap Sort": (SCREEN_WIDTH - 1250, SCREEN_HEIGHT - 920),
+            "Radix Sort": (SCREEN_WIDTH - 960, SCREEN_HEIGHT - 920),
+            "Shell Sort": (SCREEN_WIDTH - 640, SCREEN_HEIGHT - 920),
+            "Shuffle": (SCREEN_WIDTH - 320, SCREEN_HEIGHT - 920)
+                             }
 
-        quick_sort_button = Button("Quick Sort", (SCREEN_WIDTH - 1830, SCREEN_HEIGHT - 920))
-        tin_sort_button = Button("Tin Sort", (SCREEN_WIDTH - 1510, SCREEN_HEIGHT - 920))
-        heap_sort_button = Button("Heap Sort", (SCREEN_WIDTH - 1250, SCREEN_HEIGHT - 920))
-        radix_sort_button = Button("Radix Sort", (SCREEN_WIDTH - 960, SCREEN_HEIGHT - 920))
-        shell_sort_button = Button("Shell Sort", (SCREEN_WIDTH - 640, SCREEN_HEIGHT - 920))
-        shuffle_button = Button("Shuffle", (SCREEN_WIDTH - 320, SCREEN_HEIGHT - 920))
-
-        buttons = tuple((selection_sort_button, bubble_sort_button, cocktail_sort_button,
-                         insertion_sort_button, merge_sort_button, quick_sort_button,
-                         tin_sort_button, heap_sort_button, radix_sort_button,
-                         shell_sort_button, shuffle_button))
+        buttons = tuple(Button(sort_type, position)
+                        for sort_type, position in buttons_to_create.items())
 
         return buttons
 
