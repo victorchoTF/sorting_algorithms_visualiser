@@ -19,6 +19,9 @@ A Python package that holds operations used all throughout the app.
 A Python package that holds all the sorting algorithms. <br>
 Each file contains one algorithm and its time complexity written as a comment next to the function itself.
 
+### handlers
+A Python package that encapsulates all the logic from the main.py file
+
 ## Used technologies
 <ul>
   <li>
