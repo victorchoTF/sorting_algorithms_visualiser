@@ -4,7 +4,7 @@ from screen import SCREEN_HEIGHT
 from title_screen import TitleScreen
 from main_screen import MainScreen
 from app_operations.transition import transition
-from app_mode import AppMode
+from handlers.app_mode import AppMode
 
 
 def handle_transition(title_screen: TitleScreen, main_screen: MainScreen,
