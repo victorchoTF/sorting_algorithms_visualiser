@@ -1,6 +1,6 @@
 from typing import List, Tuple
 from pygame import Surface, Rect
-from handlers.app_mode import AppMode
+from app_mode import AppMode
 from main_screen import MainScreen
 
 

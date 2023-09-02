@@ -1,5 +1,5 @@
 from typing import Tuple
-from handlers.app_mode import AppMode
+from app_mode import AppMode
 from title_screen import TitleScreen
 
 
