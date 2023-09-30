@@ -1,8 +1,9 @@
 from typing import List, Tuple
 from pygame import display, quit, Surface, Rect
-from main_screen import MainScreen
-from screen import screen, clock
-from title_screen import TitleScreen
+from screens.list_data import ListData
+from screens.main_screen import MainScreen
+from screens.screen_data import screen, clock
+from screens.title_screen import TitleScreen
 from app_operations.gen_surf_rect_list import gen_surf_rect_list
 from handlers.app_mode import AppMode
 from handlers.handle_events import handle_events
@@ -15,7 +16,7 @@ def main() -> None:
     title_screen: TitleScreen = TitleScreen()
     main_screen: MainScreen = MainScreen()
 
-    num_list: List[int] = [num for num in range(1, 212)]
+    num_list: List[int] = [num for num in range(1, ListData.list_size)]
     surf_rect_list: List[Tuple[Surface, Rect]] = gen_surf_rect_list(num_list)
 
     current_mode: AppMode = AppMode.TITLE_SCREEN
