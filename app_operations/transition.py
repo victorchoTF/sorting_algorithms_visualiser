@@ -1,9 +1,9 @@
 from typing import Callable
 from pygame import draw, display
-from screen import screen, SCREEN_WIDTH, SCREEN_HEIGHT, clock
+from screens.screen_data import screen, SCREEN_WIDTH, SCREEN_HEIGHT, clock
 
 
-def transition(draw_text: Callable, start, direction):
+def transition(draw_text: Callable, start: int, direction: str) -> None:
     transit = True
     radius = start
     while transit:

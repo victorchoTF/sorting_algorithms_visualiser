@@ -3,7 +3,7 @@ from pygame import display, event, quit as pg_quit
 from app_operations.gen_surf_rect_list import gen_surf_rect_list
 from app_operations.quit_loop import quit_loop
 from app_operations.restart import restart
-from screen import screen
+from screens.screen_data import screen
 
 
 def loop(nums: List[int], idx: int = -1, second_idx: int = -1, pivot: int = -1) -> None:

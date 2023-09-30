@@ -1,7 +1,7 @@
-from pygame import QUIT, KEYDOWN, K_ESCAPE
+from pygame import QUIT, KEYDOWN, K_ESCAPE, event as pg_event
 
 
-def quit_loop(event):
+def quit_loop(event: pg_event) -> bool:
     if event.type == QUIT:
         return True
 
