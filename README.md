@@ -6,21 +6,20 @@ The app aims to show ten sorting algorithms, which vary in time complexity! <br>
 The ten algorithms are Bubble sort, Cocktail sort, Heap sort, Insertion sort, Merge sort, Quick Sort, Radix sort,<br>Selection sort, Shell sort, Tin sort;
 
 ## Structure
-title_screen.py handles the Title screen logic <br>
 main_screen.py handles the Main screen logic <br>
-screen.py holds the display information <br>
-button.py is used to make a simple Button <br>
-main.py is the main file for the script <br>
 
 ### app_operations
 A Python package that holds operations used all throughout the app.
 
+### handlers
+A Python package that encapsulates all the logic from the main.py file
+
+### screens
+A Python package encapsulating most of the displaying iformation
+
 ### sorting_algorithms
 A Python package that holds all the sorting algorithms. <br>
 Each file contains one algorithm and its time complexity written as a comment next to the function itself.
-
-### handlers
-A Python package that encapsulates all the logic from the main.py file
 
 ## Used technologies
 <ul>
