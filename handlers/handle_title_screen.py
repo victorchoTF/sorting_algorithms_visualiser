@@ -1,6 +1,6 @@
 from typing import Tuple
 from handlers.app_mode import AppMode
-from title_screen import TitleScreen
+from screens.title_screen import TitleScreen
 
 
 def handle_title_screen(title_screen: TitleScreen) -> Tuple[AppMode, None]:
