@@ -1,8 +1,8 @@
 from typing import Tuple, List
 from pygame import Surface, Rect
-from screens.list_size_menu import ListSizeMenu
+from screens.menus.list_size_menu import ListSizeMenu
 from screens.screen_data import screen, SCREEN_WIDTH, SCREEN_HEIGHT
-from screens.sorting_menu import SortingMenu
+from screens.menus.sorting_menu import SortingMenu
 
 
 class MainScreen:
